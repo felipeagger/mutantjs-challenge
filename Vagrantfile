@@ -34,7 +34,11 @@ Vagrant.configure("2") do |config|
   SCRIPT
   
   config.vm.provision "shell", inline: $script
-  
-  config.vm.provision :shell, privileged: true, run: "always", path: "configEnv.sh"
+
+  #Primeira Vez
+  config.vm.provision :shell, privileged: true, path: "configEnv.sh"
+
+  #Sempre ao Iniciar
+  config.vm.provision :shell, privileged: true, run: "always", path: "startEnv.sh"
 
 end

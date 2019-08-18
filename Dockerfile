@@ -10,7 +10,7 @@ COPY . .
 
 COPY --chown=node:node . .
 
-RUN npm install
+RUN npm install --loglevel=error
 
 USER node
 

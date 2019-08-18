@@ -51,5 +51,6 @@ VM iniciará como private network (host-only) Com IP: 192.168.1.10;
 
 - ELASTIC; (IP:PORTA para Node Conectar ao ElasticSearch - Padrao = 192.168.1.10:9200);
 
+Para Visualizar os Logs do ElasticSearch acesse: http://127.0.0.1:9200/logs/_search/
 
 
