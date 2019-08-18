@@ -37,7 +37,8 @@ E aguardar com carinho, pois o tempo depende da internet e poder de processament
 
 No Navegador acesse: http://localhost:Porta/
 
-Aplicacao Nodejs versão 10: Porta 8080; 
+Aplicacao Nodejs versão 10: Porta 8080;
+ 
 ElasticSearch versão 7.2: Porta 9200; 
 
 
