@@ -23,7 +23,6 @@ Para Subir a Aplicacao:
 E aguardar com carinho, pois o tempo depende da internet e poder de processamento do computador.
 // Entre 10 a 20 minutos (Somente a Primeira vez)
 
-
 # Fluxo de Inicialização da Aplicacao
 
  1. Baixa e Inicializa uma Instancia Debian no Vagrant;
@@ -31,7 +30,6 @@ E aguardar com carinho, pois o tempo depende da internet e poder de processament
  3. Baixa as images do Nodejs e ElasticSearch no docker;
  4. Docker Faz o Build da Imagem do Nodejs com o Fonte da Aplicacao;
  5. Docker-Compose sobe uma stack com o Container do Nodejs e ElasticSearch;
-
 
 # Endereços e Servicos
 
@@ -41,6 +39,7 @@ Aplicacao Nodejs versão 10: Porta 8080;
  
 ElasticSearch versão 7.2: Porta 9200; 
 
+VM iniciará como private network (host-only) Com IP: 192.168.1.10;
 
 #Frameworks Utilizadas
 
@@ -48,5 +47,9 @@ ElasticSearch versão 7.2: Porta 9200;
 
 # Variáveis de ambiente
 
-- PORT; (Porta para Nodejs ouvir - Padrao 8080)
+- PORT; (Porta para Nodejs ouvir - Padrao 8080);
+
+- ELASTIC; (IP:PORTA para Node Conectar ao ElasticSearch - Padrao = 192.168.1.10:9200);
+
+
 
