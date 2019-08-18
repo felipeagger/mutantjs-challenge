@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Mutantjs</title>
+<h2>Mutantjs Challenge</h2>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+ 
+<style>	
+#users {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#users td, #users th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#users tr:nth-child(even){background-color: #f2f2f2;}
+
+#users tr:hover {background-color: #ddd;}
+
+#users th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #6d4bdd;
+  color: white;
+}	
+</style>
+
+<script>
+
+  var app = angular.module("App", []);
+  
+   app.controller("Ctrl", async function($scope, $http, $timeout) {
+	  
+	  $scope.getUsuarios = function(){
+	  	  $http.get('/users').then(function(response){
+			
+			  $scope.users = response.data; 		
+		  });
+	  };
+	  
+	});
+	
+</script>
+
+</head>
+<body>
+ 
+  
+  <div ng-app="App" ng-controller="Ctrl" ng-init="getUsuarios()">
+    <h4>Users Website</h4> 
+    
+    <table class="table" id="users" >
+	  <tr>
+      <th>Website</th>	  
+	  </tr>	  
+	   <tbody ng-repeat="i in users.websites">	  
+	      <tr>
+			 <td>{{i}}</td> 
+          </tr>		  
+	  </tbody>	   		  
+	</table>
+	
+	<br><br>
+	<h4>Users Ordered by Name, Email, Company</h4> 
+	
+	<table class="table" id="users" >
+	  <tr>
+	  <th>Name</th>
+	  <th>Email</th>
+      <th>Company</th>	  
+	  </tr>	  
+	   <tbody ng-repeat="i in users.ordered">	  
+	      <tr>
+			 <td>{{i.name}}</td>
+			 <td>{{i.email}}</td>
+			 <td>{{i.company}}</td>
+          </tr>		  
+	  </tbody>	  		  
+	</table>
+	
+	<br><br>
+	<h4>Users Filtered by Suite</h4> 
+	
+	<table class="table" id="users" >
+	  <tr>
+	  <th>Name</th>
+    <th>Address N°</th>	  
+	  </tr>
+	  
+	   <tbody ng-repeat="i in users.filtered">
+	  
+	      <tr>
+			 <td>{{i.name}}</td>
+			 <td>{{i.address}}</td>
+          </tr>
+		  
+	  </tbody>	   
+		  
+	</table>
+
+	<br><br>
+	
+	<a href="/users">Clique aqui para visualizar o retorno da API.</a>
+
+  <br>
+
+  </div>
+  
+  
+</body>
+</html>

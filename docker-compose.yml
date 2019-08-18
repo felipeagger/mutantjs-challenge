@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  server:
+    container_name: Mutantjs
+    build: '.'
+    environment:
+      PORT: 8080
+      ELASTIC: 192.168.1.10:9200
+      NODE_ENV: development
+    depends_on:
+      - db
+    links:
+      - db
+    ports:
+      - '8080:8080'
+
+  db:
+    image: 'docker.elastic.co/elasticsearch/elasticsearch:7.2.0'
+    container_name: ElasticSearch
+    environment:
+      - http.host=0.0.0.0
+      - transport.host=127.0.0.1
+      - discovery.type=single-node
+      - http.cors.enabled=true
+      - http.cors.allow-origin=*
+    ports:
+      - '9200:9200'
+      - '9300:9300'
+    volumes:
+      - /var/docker/elastic/data:/usr/share/elasticsearch/data
