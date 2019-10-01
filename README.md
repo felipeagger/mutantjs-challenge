@@ -68,7 +68,7 @@ npm install
 npm run test
 ```  
 
--Yarn
+- Yarn
 ```  
 yarn 
 
