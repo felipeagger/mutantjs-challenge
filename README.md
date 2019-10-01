@@ -1,14 +1,26 @@
-# Mutantjs Challenge
+# Mutantjs Challenge (Nodejs)
 
-Requisitos :
+# Objetivos
 
+API que consuma e carregue a saida da API "https://jsonplaceholder.typicode.com/users", que retorna uma lista de usuário em JSON.
+
+EndPoints: 
+- "/users"
+
+Retorna 3 Objetos: 
+- websites (Os websites de todos os usuários)  
+- ordered (Nome, email e empresa em ordem alfabética) 
+- filtered (Usuarios Filtrados pela palavra "suite" no endereço)
+
+Logs das interações estão sendo salvos no ElasticSearch.
+
+Obs: Implementado Testes de Integração, e Docker para Entregar a Aplicação.
+
+# Requisitos
 
 Devera ter instalado `Vagrant` com `VirtualBox` para provisionar sua instância da aplicacão.
 
-Lembretes: Deixar as Porta 8080 e 9200 do seu host local livre, pois serão essas portas que a aplicacão/elasticsearch ira executar, 
-
-como pedido -> ( 
-... 2. Este aplicativo inicia na porta 8080 no host local ).
+Lembretes: Deixar as Porta 8080 e 9200 do seu host local livre, pois serão essas portas que a aplicacão/elasticsearch ira executar.
 
 
 Para Subir a Aplicacao:
@@ -41,9 +53,27 @@ ElasticSearch versão 7.2: Porta 9200;
 
 VM iniciará como private network (host-only) Com IP: 192.168.1.10;
 
-#Frameworks Utilizadas
+# Libraries Utilizadas
 
 - Nodejs com Express, Axios(Requisições Http) e Jest(TDD).
+
+# Testes
+
+Para testar a Aplicação rode:
+
+- Npm
+```  
+npm install 
+
+npm run test
+```  
+
+-Yarn
+```  
+yarn 
+
+yarn test
+```  
 
 # Variáveis de ambiente
 
@@ -53,4 +83,13 @@ VM iniciará como private network (host-only) Com IP: 192.168.1.10;
 
 Para Visualizar os Logs do ElasticSearch acesse: http://127.0.0.1:9200/logs/_search/
 
+# Links e Observações
 
+Para Utilizar Vagrant é necessario ter instalado:
+
+```  
+  Vagrant: https://www.vagrantup.com/
+
+  VirtualBox: https://www.virtualbox.org/
+
+```  
